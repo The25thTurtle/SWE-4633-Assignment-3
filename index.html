@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Client-Server Application</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="CSS-Reset.css">
+        <script src="index.js" defer> </script>
+    </head>
+    <body>
+        <main class="container">
+            <div>
+                <h1>Email Services</h1>
+                <hr>
+            </div>
+            <div class="divData">
+                <h2>External Data</h2>
+                <button id="requestData">Request Data</button>
+                  <div id="data">
+
+                  </div>
+            </div>
+            <div>
+                <h2>Send an Email</h2>
+                <form id="myForm" action="send-email.php" method="post">
+                    <div class="formBody">
+                        <label for="email">To:</label>
+                        <input type="email" id="email" name="email" placeholder="someone@example.com" required>
+                    </div>
+                    <div class="formBody">
+                        <label for="Ccemail">Cc:</label>
+                        <input type="email" id="ccEmail" name="ccEmail" placeholder="someone@example.com">
+                    </div>
+                    <div class="formBody">
+                        <label for="subjectLine">Subject:</label>
+                        <input type="text" id="subject" name="subject" placeholder="Add a subject" required>
+                    </div>
+                    <textarea id="message" name="message" placeholder="Type your message here..." required minlength="20"></textarea>
+                    <input id="button" type="submit" value="Send Email">
+                </form>
+            </div>
+        </main>
+    </body>
+</html>
