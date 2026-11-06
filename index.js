@@ -26,3 +26,20 @@ async function testDatabase() {
         results.textContent = "Unable to reach database endpoint.";
     }
 }
+const dbButton = document.getElementById("testDatabase");
+const dbResults = document.getElementById("db-result");
+
+dbButton.addEventListener("click", async () => {
+
+    dbResults.textContent = "Testing connection...";
+
+    try {
+        const response = await fetch("test-db.php");
+        const data = await response.json();
+
+        dbResults.textContent = data.message;
+
+    } catch (error) {
+        dbResults.textContent = "Unable to reach database endpoint.";
+    }
+});
