@@ -22,3 +22,4 @@ try {
         "message" => "Database connection failed."
     ]);
 }
+?>
