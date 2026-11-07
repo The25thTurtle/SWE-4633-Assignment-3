@@ -2,28 +2,24 @@ const button = document.getElementById("requestData");
 const div = document.getElementById("data");
 
 button.addEventListener('click', () => {
-    fetch("https://jsonplaceholder.typicode.com/todos/1")
-    .then(response => response.json())
-    .then(data => {
-        div.textContent = `Todo Information\nUser ID: ${data.userId}\nID: ${data.id}\nTitle: ${data.title}\nCompleted: ${data.completed}`;
-    });
-});
+    fetch("get-todo.php")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Failed to retrieve todo information");
+            }
+            return response.json();
+        })
 
-const dbButton = document.getElementById("testDatabase");
-const dbResults = document.getElementById("db-result");
+        .then(data => {
+            div.textContent = 
+            `Todo Information\n` +
+            `User ID: ${data.userId}\n` +
+            `ID: ${data.id}\n` +
+            `Title: ${data.title}\n` +
+            `Completed: ${data.completed}`;
+        })
 
-dbButton.addEventListener("click", async () => {
-
-    dbResults.textContent = "Testing connection...";
-
-    try {
-        const response = await fetch("test-db.php");
-        const data = await response.json();
-
-        dbResults.textContent = data.message;
-
-    } catch (error) {
-        console.error(error);
-        dbResults.textContent = "Unable to reach database endpoint.";
-    }
+        .catch(error => {
+            div.textContent = error.message;
+     });
 });
