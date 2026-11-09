@@ -68,6 +68,11 @@ input {
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px;
     white-space: pre-line; 
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
 }
 textarea {
     height: 300px;
