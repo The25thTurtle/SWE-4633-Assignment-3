@@ -25,17 +25,17 @@
                 <form id="myForm" action="send-email.php" method="post">
                     <div class="formBody">
                         <label for="email">To:</label>
-                        <input type="email" id="email" name="email" placeholder="someone@example.com" required>
+                        <input type="email" id="email" name="email" placeholder="someone@example.com" maxlength="254" required>
                     </div>
                     <div class="formBody">
                         <label for="Ccemail">Cc:</label>
-                        <input type="email" id="ccEmail" name="ccEmail" placeholder="someone@example.com">
+                        <input type="email" id="ccEmail" name="ccEmail" placeholder="someone@example.com" maxlength="254">
                     </div>
                     <div class="formBody">
                         <label for="subjectLine">Subject:</label>
-                        <input type="text" id="subject" name="subject" placeholder="Add a subject" required>
+                        <input type="text" id="subject" name="subject" placeholder="Add a subject" maxlength="255" required>
                     </div>
-                    <textarea id="message" name="message" placeholder="Type your message here..." required minlength="20"></textarea>
+                    <textarea id="message" name="message" placeholder="Type your message here..." required minlength="20" maxlength="5000"></textarea>
                     <input id="button" type="submit" value="Send Email">
                 </form>
             </div>

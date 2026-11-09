@@ -26,8 +26,8 @@ if ($subject === "" || strlen($subject) > 255) {
     exit("Please enter a valid subject.");
 }
 
-if (strlen($message) < 20) {
-    exit("Your message must contain at least 20 characters.");
+if (strlen($message) < 20 || strlen($message) > 5000) {
+    exit("Your message must be between 20 characters and 5000 characters.");
 }
 
 try {
@@ -49,6 +49,10 @@ try {
 
     echo "<p>Recipient: " . htmlspecialchars($email, ENT_QUOTES, 'UTF-8') . "</p>";
     echo "<p>Subject: " . htmlspecialchars($subject, ENT_QUOTES, 'UTF-8') . "</p>";
+    echo "<p>CC: " . htmlspecialchars($ccEmail, ENT_QUOTES, 'UTF-8') . "</p>";
+
+    echo "<p>Message:</p>";
+    echo "<p>" . nl2br(htmlspecialchars($message, ENT_QUOTES, 'UTF-8')) . "</p>";
 
 } catch (PDOException $e) {
     error_log("Email submission failed: " . $e->getMessage());
